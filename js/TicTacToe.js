@@ -55,16 +55,19 @@ function check_game_over() {
     if (sol1 == winX || sol2 == winX || sol3 == winX || sol4 == winX || sol5 == winX || sol6 == winX || sol7 == winX || sol8 == winX) {
         gameover = true;
         $('#score').html("Player X won");
+        $('#ttt_table').css('background', '#D3D3D3');
     }
 
     if (sol1 == winO || sol2 == winO || sol3 == winO || sol4 == winO || sol5 == winO || sol6 == winO || sol7 == winO || sol8 == winO) {
         gameover = true;
         $('#score').html("Player O won");
+        $('#ttt_table').css('background', '#D3D3D3');
     }
 
     if (played_moves == 9 && !gameover) {
         gameover = true;
         $('#score').html("Draw");
+        $('#ttt_table').css('background', '#D3D3D3');
     }
 
 
@@ -76,5 +79,6 @@ function start_game() {
     refresh();
     $('#score').html("");
     played_moves = 0;
+    $('#ttt_table').css('background', '#ffffff');
 
 }
