@@ -1,0 +1,37 @@
+table {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 80px;
+    border-collapse: collapse;
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 300px;
+    height: 300px;
+}
+
+td {
+    border: 1px solid black;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#start_btn {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 400px;
+}
+
+p {
+    color: black;
+    font-size: 2em;
+}
+
+#score_div {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 80px;
+}
