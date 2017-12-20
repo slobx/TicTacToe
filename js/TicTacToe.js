@@ -1,4 +1,5 @@
 var cells = [];
+var indexes = [];
 var tbl = document.getElementById("ttt_table");
 var start_btn = document.getElementById("start_btn");
 var player = 1;
@@ -18,10 +19,12 @@ function getval(cel) {
     if (cells[id] == "") {
         if (player == 1) {
             cells[id] = "X";
+            var indexOf = indexes.indexOf(id);
+            indexes.splice(indexOf, 1);
             player = 0;
+            computer();
         } else {
-            cells[id] = "O";
-            player = 1;
+
         }
         if (!gameover) {
             refresh();
@@ -64,7 +67,7 @@ function check_game_over() {
         $('#ttt_table').css('background', '#D3D3D3');
     }
 
-    if (played_moves == 9 && !gameover) {
+    if (indexes.length == 0 && !gameover) {
         gameover = true;
         $('#score').html("Draw");
         $('#ttt_table').css('background', '#D3D3D3');
@@ -75,10 +78,26 @@ function check_game_over() {
 
 function start_game() {
     cells = ["", "", "", "", "", "", "", "", ""];
+    indexes = [];
     gameover = false;
     refresh();
     $('#score').html("");
     played_moves = 0;
     $('#ttt_table').css('background', '#ffffff');
+    $.each(cells, function(i) {
+        indexes.push(i);
+    });
 
+}
+
+function computer() {
+    var randomValue = indexes[Math.floor(indexes.length * Math.random())];
+    cells[randomValue] = "O";
+    console.log("Random value: " + randomValue);
+    var indexOf = indexes.indexOf(randomValue);
+    indexes.splice(indexOf, 1);
+    $.each(indexes, function(i) {
+        console.log(indexes[i]);
+    });
+    player = 1;
 }
